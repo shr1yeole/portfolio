@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - DADA'S I.T SERVICES & SECURITY SOLUTIONS</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #eef2f3 0%, #8ec5fc 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(20,20,40, 0.95) !important;
+            box-shadow: 0 2px 16px rgba(32,40,68,.06);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            color: #24a0ed !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #ced6e0 !important;
+            transition: color .2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #24a0ed !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(120deg, #3a7bd5b8 0%, #00d2ffbe 100%),
+                        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        .page-header::after {
+            content: "";
+            position: absolute; left: 0; bottom: 0; width: 100%; height: 18px;
+            background: linear-gradient(to bottom, #ffffff00, #eef2f3 95%);
+            z-index: 1;
+        }
+        .page-header h1 {
+            font-weight: 900;
+            font-size: 2.6rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Product Cards - Glassmorphic */
+        .products-section {
+            margin-top: -36px;
+        }
+        .product-card {
+            background: rgba(255,255,255,0.75);
+            border-radius: 28px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+            padding: 0;
+            transition: transform 0.26s, box-shadow 0.28s, background 0.3s;
+            overflow: hidden;
+            opacity: 0;
+            animation: cardEnter .7s cubic-bezier(.6,.02,0,1) forwards;
+        }
+        .products-section .col-md-4:nth-child(1) .product-card { animation-delay: 0.2s; }
+        .products-section .col-md-4:nth-child(2) .product-card { animation-delay: 0.37s; }
+        .products-section .col-md-4:nth-child(3) .product-card { animation-delay: 0.53s; }
+
+        @keyframes cardEnter {
+            from { transform: translateY(40px) scale(.97); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 24px 38px -12px rgba(32,40,100,.2);
+            background: rgba(255,255,255,0.95);
+        }
+        .product-img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .product-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .product-body h4 {
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: #31416a;
+        }
+        .product-body p {
+            color: #444c55;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background: linear-gradient(120deg, #3a7bd5, #00d2ff);
+            border: none;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(120deg, #00d2ff, #3a7bd5);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg,#252959 0,#05568e 100%);
+            color: #fff;
+        }
+        footer p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            opacity: .80;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-shield-halved me-2"></i><b>DADA'S I.T SERVICES</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-home me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa fa-box-open me-1"></i>Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-cogs me-1"></i>Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-envelope me-1"></i>Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa fa-info-circle me-1"></i>About</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.html"><i class="fa fa-user-circle me-1"></i>Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Our Products</h1>
+        <p class="lead">Top Quality I.T and Security Products at Competitive Prices</p>
+    </div>
+
+    <!-- Products Section -->
+    <div class="container py-5 products-section">
+        <div class="row g-4">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="product-card shadow h-100">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Computer Components" class="product-img">
+                    <div class="product-body">
+                        <h4>Computer Components</h4>
+                        <p>High-quality motherboards, processors, RAM, SSDs, and more for every build.</p>
+                        <a href="components.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="product-card shadow h-100">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="CCTV Systems" class="product-img">
+                    <div class="product-body">
+                        <h4>CCTV & Security Systems</h4>
+                        <p>Latest CCTV cameras, DVRs, and NVRs with professional installation services.</p>
+                        <a href="cctv.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="product-card shadow h-100">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Automation Gadgets" class="product-img">
+                    <div class="product-body">
+                        <h4>Automation Gadgets</h4>
+                        <p>Smart home devices, IoT products, and automation solutions for modern living.</p>
+                        <a href="automation.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-4 mt-4">
+        <p><i class="fa-solid fa-shield-halved text-info"></i>
+            © 2025 DADA'S I.T SERVICES & SECURITY SOLUTIONS | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

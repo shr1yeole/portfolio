@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - DADA'S I.T SERVICES & SECURITY SOLUTIONS</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* General */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #eef2f3 0%, #8ec5fc 100%);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Scroll Progress Bar */
+        #scrollIndicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #00d2ff;
+            width: 0;
+            z-index: 1031;
+            transition: width 0.25s ease-out;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(20,20,40, 0.95) !important;
+            box-shadow: 0 2px 16px rgba(32,40,68,.06);
+            transition: background-color 0.3s ease;
+            z-index: 1030;
+        }
+        .navbar.sticky {
+            background: #141428 !important;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            color: #24a0ed !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            font-weight: bold;
+            position: relative;
+        }
+        .navbar-nav .nav-link.active::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #00d2ff;
+            bottom: -6px;
+            left: 0;
+            border-radius: 2px;
+        }
+        .navbar-nav .nav-link {
+            color: #ced6e0 !important;
+            transition: color .2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #24a0ed !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(120deg, #243B55CC 0%, #141E30CC 100%),
+                        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 120px 15px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+        }
+        .page-header::after {
+            content: "";
+            position: absolute; left: 0; bottom: 0; width: 100%; height: 20px;
+            background: linear-gradient(to bottom, transparent, #eef2f3 90%);
+            z-index: 1;
+        }
+        .page-header h1 {
+            font-weight: 900;
+            font-size: clamp(2.4rem, 5vw, 3rem);
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            letter-spacing: 1.2px;
+            margin-bottom: 0;
+            z-index: 2;
+            position: relative;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Card Section */
+        .info-card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 28px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.12);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            cursor: default;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.4s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.6s ease;
+        }
+        .info-card.in-view {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 28px 48px -10px rgba(32,40,100,.3);
+            background: rgba(255,255,255,1);
+        }
+        .info-card i {
+            font-size: 3rem;
+            color: #00aaff;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .info-card:hover i {
+            color: #0077cc;
+        }
+        .info-card h4 {
+            font-weight: 700;
+            color: #31416a;
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+        }
+        .info-card p {
+            color: #444c55;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Certifications */
+        .certification-img {
+            max-width: 100%;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        .certification-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg,#252959 0,#05568e 100%);
+            color: #fff;
+            padding: 1.5rem 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            user-select: none;
+        }
+        footer p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            opacity: .85;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        footer p i {
+            color: #00d2ff;
+            font-size: 1.4rem;
+            animation: pulse 2.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive Tweaks */
+        @media (min-width: 768px) {
+            .info-cards-row {
+                display: flex;
+                gap: 2rem;
+            }
+            .info-card {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            /* About and Certifications stacked vertically */
+            .about-who-we-are,
+            .certifications-row > div {
+                flex: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Indicator -->
+    <div id="scrollIndicator"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-shield-halved me-2"></i><b>DADA'S I.T SERVICES</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-home me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa fa-box-open me-1"></i>Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-cogs me-1"></i>Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-envelope me-1"></i>Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa fa-info-circle me-1"></i>About</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.html"><i class="fa fa-user-circle me-1"></i>Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>About Us</h1>
+        <p class="lead">Delivering Innovative IT Solutions with Trust & Excellence</p>
+    </div>
+
+    <!-- About & Mission Sections -->
+    <main class="container py-5">
+
+        <div class="info-cards-row">
+            <section class="info-card" tabindex="0" aria-labelledby="mission-title" aria-describedby="mission-desc">
+                <i class="fas fa-bullseye" aria-hidden="true"></i>
+                <h4 id="mission-title">Our Mission</h4>
+                <p id="mission-desc">To empower clients with cutting-edge IT products and services that drive efficiency, security, and growth.</p>
+            </section>
+
+            <section class="info-card" tabindex="0" aria-labelledby="choose-title" aria-describedby="choose-desc">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                <h4 id="choose-title">Why Choose Us</h4>
+                <p id="choose-desc">We combine technical expertise, modern equipment, and a customer-first approach to deliver unmatched value.</p>
+            </section>
+
+            <section class="info-card" tabindex="0" aria-labelledby="partnership-title" aria-describedby="partnership-desc">
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+                <h4 id="partnership-title">Partnerships</h4>
+                <p id="partnership-desc">Certified by industry leaders and partnered with top brands for technology solutions you can trust.</p>
+            </section>
+        </div>
+
+        <section class="info-card mt-5" tabindex="0" aria-labelledby="who-title" aria-describedby="who-desc">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <h4 id="who-title">Who We Are</h4>
+            <p id="who-desc">
+                At <strong>DADA'S I.T SERVICES & SECURITY SOLUTIONS</strong>, we provide premium IT solutions, high-quality hardware, and reliable installation services.
+                From computers and CCTV systems to automation gadgets and networking, we offer complete solutions tailored to each client's needs.
+            </p>
+        </section>
+
+        <!-- Certifications -->
+        <section class="mt-5">
+            <h3 class="text-center mb-4" style="color:#31416a;">Our Certifications</h3>
+            <div class="d-flex flex-wrap justify-content-center gap-4 certifications-row">
+                <div class="info-card text-center" tabindex="0" aria-label="ISO 9001 Certified">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968848.png" alt="ISO 9001" class="certification-img" />
+                    <h5>ISO 9001 Certified</h5>
+                </div>
+                <div class="info-card text-center" tabindex="0" aria-label="Partnered with Intel">
+                    <img src="D:\College project\DADA'S IT SERVICES & SECURITY SOLUTIONS\assets3\images.png" alt="Intel Partner" class="certification-img" />
+                    <h5>Partnered with Intel</h5>
+                </div>
+                <div class="info-card text-center" tabindex="0" aria-label="Authorized Installer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920979.png" alt="Authorized Installer" class="certification-img" />
+                    <h5>Authorized Installer</h5>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white text-center">
+        <p><i class="fa-solid fa-shield-halved"></i> © 2025 DADA'S I.T SERVICES & SECURITY SOLUTIONS | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Scroll Indicator Bar
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        });
+
+        // Sticky Navbar background toggle
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if(window.scrollY > 40) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        });
+
+        // Intersection Observer for fade in animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.info-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
